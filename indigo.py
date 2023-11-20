@@ -26,7 +26,7 @@ for x in range(0, int(target) // 24 + 1):
 
     for item in product_list:
         title = item.find("img", class_="tile-image").get("title")
-        if ("vol" and "1" in title.lower()) or ("vol" not in title.lower()):
+        if  ("1" in title and any(str(x) in title for x in range(10, 20)) == False) or any(str(x) in title.lower() for x in ["vol", "part", "#", "coloring"]) == False:
             price = item.find("span", class_="value").get("content")
             link = item.find("a", href=True, class_="").get("href")
 
